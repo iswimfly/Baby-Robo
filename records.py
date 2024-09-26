@@ -218,6 +218,6 @@ def responseMessage(game: str, entry, level: str, color: str, type: str):
     if entry["medal"] == "gold":
         record = f"TIED {record}. Proof provided"
     response: str = (
-        f"World record for {level} is {record} by **{entry["profile"]["username"]}** {entry["proof"]}"
+        f"World record for {level} is {record} by **{entry['profile']['username']}** {entry['proof']}"
     )
     return response
