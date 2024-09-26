@@ -57,16 +57,18 @@ def ilrecord(game: str, level: str, type: str, category :str, jump: str, color:s
                      if category != None:
                            if category == json_category:
                                  for level_name in json_data[json_category]:
-                                        lower_level_name: str = level_name.lower()
-                                        if lower_level_name.__contains__(level):
+                                    if elite_level == None:
+                                          lower_level_name: str = level_name.lower()
+                                          if lower_level_name.__contains__(level):
                                                 elite_level = levelName(game, lower_level_name, color, jump)
                                                 response_level = level_name
                                                 if category == None:
                                                       category = json_category
                      else:
                            for level_name in json_data[json_category]:
-                                        lower_level_name: str = level_name.lower()
-                                        if lower_level_name.__contains__(level):
+                                    if elite_level == None:
+                                          lower_level_name: str = level_name.lower()
+                                          if lower_level_name.__contains__(level):
                                                 elite_level = levelName(game, lower_level_name, color, jump)
                                                 response_level = level_name
                                                 if category == None:
@@ -105,6 +107,10 @@ def levelName(game:str, level: str, color: str, jump: str):
             level = level.replace('smb1 ', '')
       if level.__contains__('smb2'):
             level = level.replace('smb2 ', '')
+            if level.__contains__('normal 1'):
+                  level = level.replace('normal 1', 'world_3-')
+            if level.__contains__('expert 2'):
+                  level = level.replace('expert 2', 'world_7-')
       if level.__contains__('casual ex'):
                   level = level.replace('casual ex', 'casual X')
       if level.__contains__('normal ex'):
