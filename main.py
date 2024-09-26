@@ -41,6 +41,59 @@ async def on_message(message: discord.Message):
             else:
                 response = poopster(inputcommand.split(' ', 1)[1])
             await message.channel.send(response)
+        if inputcommand.split(' ')[0] == 'help':
+            try:
+                input = inputcommand.split(' ', 1)[1]
+            except Exception as e:
+                embed = discord.Embed(color=0xd3edf5)  # Create an Embed object
+                embed.title = f'Command List:'
+                embed.add_field(name='/record', value='', inline=False)
+                embed.add_field(name='/ilbattle', value='', inline=False)
+                embed.add_field(name='/powerrankings', value='', inline=False)
+                embed.add_field(name='!poopster', value='', inline=False)
+                embed.add_field(name='!help', value='', inline=False)
+                await message.channel.send(embed=embed)
+                return
+            if input.lower().__contains__('record'):
+                embed = discord.Embed(color=0xd3edf5)
+                embed.title = '/record'
+                embed.description = 'Provides the Live Proof WR of a given IL courtesy of SMB Elite! Check parameters for specifics with stages!'
+                embed.add_field(name='game', value='(Required) Parameter to distinguish which game.', inline=True)
+                embed.add_field(name='level', value='(Required) Level name (in English), can be partial, full is recommended. BBHD Names are as they are in-game, World Name #.', inline=True)
+                embed.add_field(name='type', value='(Optional) Time or Score - only applicable for BBHD. Will default to time and overwrite score with time if not BBHD.', inline=True)
+                embed.add_field(name='category', value='(Optional) Specify a category your record should be from. If left blank will return the first instance of level in database.', inline=True)
+                embed.add_field(name='jump', value='(Optional) Banana Mania only, provide jump record instead of jumpless. Defaults to jumpless.', inline=True)
+                embed.add_field(name='color', value='(Optional) Banana Mania only, goal color if a stage has more than one. Defaults to Blue.', inline=True)
+                await message.channel.send(embed=embed)
+                return
+            elif input.lower().__contains__('ilbattle'):
+                embed = discord.Embed(color=0xd3edf5)
+                embed.title = '/ilbattle'
+                embed.description = 'Provides the Live Proof WR of a given IL courtesy of SMB Elite! Check parameters for specifics with stages!'
+                embed.add_field(name='game', value='(Required) Parameter to distinguish which game.', inline=True)
+                embed.add_field(name='category1', value='(Optional) Specify a category to pull stages from. If all are left blank will pull from everything.', inline=False)
+                embed.add_field(name='category2', value='(Optional) Specify an additional category to pull stages from. If all are left blank will pull from everything.', inline=True)
+                embed.add_field(name='category3', value='(Optional) Specify an additional category to pull stages from. If all are left blank will pull from everything.', inline=True)
+                await message.channel.send(embed=embed)
+                return
+            elif input.lower().__contains__('powerrankings'):
+                embed = discord.Embed(color=0xd3edf5)
+                embed = discord.Embed(color=0xd3edf5)
+                embed.title = '/powerrankings'
+                embed.description = 'Shows the power rankings (number of ILs each player has) from a given game\'s IL World Record Sheet'
+                embed.add_field(name='game', value='(Required) Parameter to distinguish which game.', inline=True)
+                await message.channel.send(embed=embed)
+                return
+            elif input.lower().__contains__('poopster'):
+                embed = discord.Embed(color=0xd3edf5)
+                await message.channel.send('Poopster combines two stage names from various marble rollers, including various entries from the Super Monkey Ball series, Rolled Out!, and BALLYGON. Use -games for the full list of games or -modifiers for a list of modifiers. | https://poopster.anvilsp.com')
+                return
+            elif input.lower().__contains__('help'):
+                embed = discord.Embed(color=0xd3edf5)
+                await message.channel.send('Adding a command name after !help will provide an explanation of what a command does, like this!')
+                return
+            else:
+                await message.channel.send('Adding a command name after !help will provide an explanation of what a command does, like this!')
         if inputcommand.split(' ')[0] == 'test':
             if message.author.id == 258712206298841088:
                 await message.channel.send(test())
@@ -55,7 +108,7 @@ async def on_message(message: discord.Message):
 async def powerrankings(interaction: discord.Interaction, game:str):
     pages = powerranking(game)
     await Paginator.Simple().start(interaction, pages)
-    
+
 #IL Battle Parameters
 @bot.tree.command(name="ilbattle", description="Generates a list of stages for a potential Individual Level battle!")
 @app_commands.describe(game = "What game?")
