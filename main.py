@@ -55,13 +55,7 @@ async def on_message(message: discord.Message):
 async def powerrankings(interaction: discord.Interaction, game:str):
     pages = powerranking(game)
     await Paginator.Simple().start(interaction, pages)
-
-@bot.tree.command(name='testcommand', description='test')
-async def testcommand(interaction: discord.Interaction):
-    if (interaction.user.id == 258712206298841088):
-        pages = powerranking('mania')
-        await Paginator.Simple().start(interaction, pages)
-
+    
 #IL Battle Parameters
 @bot.tree.command(name="ilbattle", description="Generates a list of stages for a potential Individual Level battle!")
 @app_commands.describe(game = "What game?")
