@@ -3,34 +3,35 @@ import json
 import random
 import math
 
+
 def il_battle(game: str, stagecount: int, args: str):
     # Setup
     stagecount = abs(stagecount)
     if stagecount == 0:
-        return('Please provide a stage count above 0 and try again!')
-    if game == 'bbhd':
+        return "Please provide a stage count above 0 and try again!"
+    if game == "bbhd":
         response: str = f"Selected {stagecount} stages from BBHD:"
     else:
         response: str = f"Selected {stagecount} stages from {game}:```"
     # Convert Args into actual categories
     argslist = args.split(",")
     argslist = list(set(argslist))
-    while ('None' in argslist):
-        argslist.remove('None')
-    if argslist.__contains__('specials'):
-        argslist.remove('specials')
-        argslist.append('dx')
-        argslist.append('og')
-        argslist.append('reverse')
-        argslist.append('gb')
-        argslist.append('db')
-    if argslist.__contains__('dxonly'):
-        argslist.remove('dxonly')
-        argslist.append('dx')
+    while "None" in argslist:
+        argslist.remove("None")
+    if argslist.__contains__("specials"):
+        argslist.remove("specials")
+        argslist.append("dx")
+        argslist.append("og")
+        argslist.append("reverse")
+        argslist.append("gb")
+        argslist.append("db")
+    if argslist.__contains__("dxonly"):
+        argslist.remove("dxonly")
+        argslist.append("dx")
     # Read json and pull any stages from specified categories
     game = game.lower()
     viable_stages = []
-    with open(f'resources/{game}.json', 'r') as file:
+    with open(f"resources/{game}.json", "r") as file:
         json_data = json.load(file)
     if len(argslist) > 0:
         for category in argslist:
@@ -53,5 +54,4 @@ def il_battle(game: str, stagecount: int, args: str):
         i = i + 1
     response = f"{response}```"
     file.close()
-    return(response)
-    
+    return response
