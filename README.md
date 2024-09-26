@@ -7,7 +7,7 @@ Supports Banana Blitz HD, Banana Mania, and Banana Rumble.
 - /record
 - /powerrankings
 
-- !poopster (Courtesy of [Anvil](https://github.com/anvilsp/Poopster)
+- !poopster (Courtesy of [Anvil](https://github.com/anvilsp/Poopster))
 - !help
   
 ## Plan to Add:
