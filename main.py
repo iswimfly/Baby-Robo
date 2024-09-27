@@ -133,6 +133,18 @@ async def on_message(message: discord.Message):
                 )
                 await message.channel.send(embed=embed)
                 return
+            elif input.lower().__contains__("monkey"):
+                embed = discord.Embed(color=0xD3EDF5)
+                embed = discord.Embed(color=0xD3EDF5)
+                embed.title = "/monkey"
+                embed.description = "Provides the number of records each playable character has in Banana Rumble!"
+                embed.add_field(
+                    name="user",
+                    value="(Optional) Parameter to only pull records based on a specfic username.",
+                    inline=True,
+                )
+                await message.channel.send(embed=embed)
+                return
             elif input.lower().__contains__("poopster"):
                 embed = discord.Embed(color=0xD3EDF5)
                 await message.channel.send(
