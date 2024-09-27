@@ -17,7 +17,7 @@ def powerranking(game: str):
         sheetid = os.getenv("RUMBLE_SHEET")
         embedtitle = "Banana Rumble"
 
-    gc = gspread.service_account()
+    gc = gspread.service_account(filename='resources/credentials.json')
     sheet = gc.open_by_key(sheetid)
     worksheet = sheet.get_worksheet(1)
     pages: list[discord.Embed] = []
