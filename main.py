@@ -14,7 +14,7 @@ from poopster import poopster
 from test import test
 from powerranking import powerranking
 import Paginator
-from monkey import monkey
+from monkey import monkeys
 
 # Setup Discord Junk
 load_dotenv()
@@ -28,11 +28,8 @@ bot: commands.Bot = commands.Bot(command_prefix="!br", intents=intents)
 @bot.event
 async def on_ready():
     print("Hi :3")
-    try:
-        synced = await bot.tree.sync()
-        print(f"{len(synced)} commands synced.")
-    except Exception as e:
-        print(e)
+    synced = await bot.tree.sync()
+    print(f"{len(synced)} commands synced.")
 
 
 @bot.event
@@ -313,6 +310,10 @@ async def record(
 )
 @app_commands.describe(user="Input a username (AS IT IS ON THE SHEET) to get that player's character data!")
 async def monkey(interaction: discord.Interaction, user: str = None):
-    await Paginator.Simple.start(interaction, monkey(user))
+    pages = monkeys(user)
+    if type(pages) == str:
+        await interaction.response.send_message(pages, ephemeral=True)
+    else:
+        await Paginator.Simple().start(interaction, pages)
 
 bot.run(TOKEN)
