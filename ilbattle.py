@@ -53,5 +53,7 @@ def il_battle(game: str, stagecount: int, args: str):
         response = f"{response}\n{selected_stage}"
         i = i + 1
     response = f"{response}```"
+    if len(viable_stages) == 0:
+        response = 'Please select a valid category or categories and try again!'
     file.close()
     return response
