@@ -14,6 +14,7 @@ from poopster import poopster
 from test import test
 from powerranking import powerranking
 import Paginator
+from monkey import monkey
 
 # Setup Discord Junk
 load_dotenv()
@@ -304,5 +305,14 @@ async def record(
     message = ilrecord(game, level, type, category, jump, color)
     await interaction.response.send_message(message, ephemeral=False)
 
+
+# monkey command
+@bot.tree.command(
+    name="monkey",
+    description="Provides a list of IL record character data for a user or for all of Banana Rumble!",
+)
+@app_commands.describe(user="Input a username (AS IT IS ON THE SHEET) to get that player's character data!")
+async def monkey(interaction: discord.Interaction, user: str = None):
+    await Paginator.Simple.start(interaction, monkey(user))
 
 bot.run(TOKEN)

@@ -3,7 +3,6 @@ import gspread
 import os
 from dotenv import load_dotenv
 
-
 def powerranking(game: str):
     print("Entered Power Ranking Command")
     load_dotenv()
