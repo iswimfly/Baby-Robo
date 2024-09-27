@@ -12,4 +12,5 @@ Supports Banana Blitz HD, Banana Mania, and Banana Rumble.
   
 ## Plan to Add:
 
-- !faq
+- !faq (Used for copy-paste answers to questions, such as Mania deadzones)
+- /monkey (Display number of records a user has with a specific character, or number of records a character has if no user is specified.)
