@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from emote import characterEmote
 def monkeys(user:str):
+  print('Entered Monkey Command')
   load_dotenv()
   gc = gspread.service_account(filename='resources/credentials.json')
   sheetid = os.getenv("RUMBLE_SHEET")
@@ -36,11 +37,9 @@ def monkeys(user:str):
         charadict[f'{monkeydata[i][13]}'] = charadict[f'{monkeydata[i][13]}'] + 1
         recordtotal = recordtotal + 1
       i = i + 1
-    print(charadict)  
   if recordtotal == 0 and user != None:
     return('No player was found with that name. Please try again!')
   sortedcharadict = dict(sorted(charadict.items(), key=lambda item: item[1], reverse=True))
-  print(sortedcharadict)
   embed = discord.Embed(color=0x00FF00)  # Create an Embed object
   embed.title = f"Banana Rumble IL Records by Character:"
   if (user != None):
