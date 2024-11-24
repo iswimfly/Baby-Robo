@@ -8,7 +8,6 @@ import json
 from emote import goalEmote, characterEmote
 import discord
 
-
 # gc = gspread.api_key(os.getenv('GOOGLE_CREDENTIALS'))
 def ilrecord(game: str, level: str, type: str, category: str, jump: str, color: str):
     print("Entered Record Command")
@@ -90,7 +89,7 @@ def ilrecord(game: str, level: str, type: str, category: str, jump: str, color: 
                         "category_name": f"{categoryName(game, category, jump)}",
                         "level": f"{elite_level}",
                         "is_score": typebool,
-                        "version_key":14
+                        "version_key": 14
                     },
                 ).execute()
             else:
@@ -101,7 +100,7 @@ def ilrecord(game: str, level: str, type: str, category: str, jump: str, color: 
                         "category_name": f"{categoryName(game, category, jump)}",
                         "level": f"{elite_level}",
                         "is_score": typebool,
-                        "version_key": "null"
+                        "version_key": None
                     },
                 ).execute()
                 
@@ -114,7 +113,7 @@ def ilrecord(game: str, level: str, type: str, category: str, jump: str, color: 
                         "category_name": f"{categoryName(game, category, jump)}",
                         "level": f"{elite_level}_(blue)",
                         "is_score": typebool,
-                        "version_key": "null"
+                        "version_key": None
                     },
                 ).execute()
             if str(smb_elite_data.data).__contains__("'medal': 'platinum'"):
