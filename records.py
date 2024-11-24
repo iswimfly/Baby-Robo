@@ -82,15 +82,29 @@ def ilrecord(game: str, level: str, type: str, category: str, jump: str, color: 
             print(
                 f'"game":"{elite_game}","category_name":"{categoryName(game, category, jump)}","level":"{elite_level}","is_score":{typebool}'
             )
-            smb_elite_data = supabase.rpc(
-                "get_chart_submissions",
-                {
-                    "game": f"{elite_game}",
-                    "category_name": f"{categoryName(game, category, jump)}",
-                    "level": f"{elite_level}",
-                    "is_score": typebool,
-                },
-            ).execute()
+            if elite_game == "br":
+                smb_elite_data = supabase.rpc(
+                    "get_chart_submissions",
+                    {
+                        "game": f"{elite_game}",
+                        "category_name": f"{categoryName(game, category, jump)}",
+                        "level": f"{elite_level}",
+                        "is_score": typebool,
+                        "version_key":14
+                    },
+                ).execute()
+            else:
+                smb_elite_data = supabase.rpc(
+                    "get_chart_submissions",
+                    {
+                        "game": f"{elite_game}",
+                        "category_name": f"{categoryName(game, category, jump)}",
+                        "level": f"{elite_level}",
+                        "is_score": typebool,
+                        "version_key": "null"
+                    },
+                ).execute()
+                
             if smb_elite_data.data == "[]":
                 color = "blue"
                 smb_elite_data = supabase.rpc(
@@ -100,6 +114,7 @@ def ilrecord(game: str, level: str, type: str, category: str, jump: str, color: 
                         "category_name": f"{categoryName(game, category, jump)}",
                         "level": f"{elite_level}_(blue)",
                         "is_score": typebool,
+                        "version_key": "null"
                     },
                 ).execute()
             if str(smb_elite_data.data).__contains__("'medal': 'platinum'"):
