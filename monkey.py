@@ -19,23 +19,31 @@ def monkeys(user:str):
     # Grab from P column, Check R for data
     while i < 23:
       if (monkeydata[i][17] != '0'):
-        charadict[f'{monkeydata[i][19]}'] = int(monkeydata[i][17])
+        charadict[f'{monkeydata[i][17]}'] = int(monkeydata[i][15])
         i += 1
   else:
-    while i < 21:
-      charadict[f'{monkeydata[i][20]}'] = 0
+    while i < 23:
+      charadict[f'{monkeydata[i][17]}'] = 0
       i = i + 1
     i = 3
-    while i < 124:
+    while i < 278:
       if (str(monkeydata[i][5]).__contains__(user)):
         charadict[f'{monkeydata[i][4]}'] = charadict[f'{monkeydata[i][4]}'] + 1
         recordtotal = recordtotal + 1
+      if (str(monkeydata[i][5]).__contains__('Players')):
+        if(worksheet.get_note(f'F{i + 1}').__contains__(user)):
+          charadict[f'{monkeydata[i][4]}'] = charadict[f'{monkeydata[i][4]}'] + 1
+          recordtotal = recordtotal + 1
       i = i + 1
     i = 3
-    while i < 124:
-      if (str(monkeydata[i][14]).__contains__(user)):
-        charadict[f'{monkeydata[i][13]}'] = charadict[f'{monkeydata[i][13]}'] + 1
+    while i < 278:
+      if (str(monkeydata[i][11]).__contains__(user)):
+        charadict[f'{monkeydata[i][10]}'] = charadict[f'{monkeydata[i][10]}'] + 1
         recordtotal = recordtotal + 1
+      if (str(monkeydata[i][11]).__contains__('Players')):
+        if(worksheet.get_note(f'L{i + 1}').__contains__(user)):
+          charadict[f'{monkeydata[i][10]}'] = charadict[f'{monkeydata[i][10]}'] + 1
+          recordtotal = recordtotal + 1
       i = i + 1
   if recordtotal == 0 and user != None:
     return('No player was found with that name. Please try again!')

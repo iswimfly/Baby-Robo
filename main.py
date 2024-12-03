@@ -281,8 +281,8 @@ async def ilbattle(
         app_commands.Choice(name="Dark Banana Mode", value="db"),
         app_commands.Choice(name="Reverse Mode", value="reverse"),
         app_commands.Choice(name="DX Mode", value="dx"),
-        app_commands.Choice(name="World Tour", value="wt"),
-        app_commands.Choice(name="World Tour EX", value="wtex"),
+        app_commands.Choice(name="Adventure (Normal)", value="adv"),
+        app_commands.Choice(name="Adventure (Super Speed)", value="advss"),
     ]
 )
 @app_commands.describe(

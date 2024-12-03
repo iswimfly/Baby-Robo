@@ -60,6 +60,12 @@ def characterEmote(game: str, charaID: str):
         if charaID == "yanyan":
             emote.name = "BrYanYan"
             emote.id = 1288179030809378948
+        if charaID == "hatsune miku":
+            emote.name = "BRMiku"
+            emote.id = 1313608022102114345
+        if charaID == "godzilla":
+            emote.name = "BRGodzilla"
+            emote.id = 1313607993224335421
     else:
         if charaID == "aiai":
             emote.name = "BMAiai"

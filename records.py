@@ -20,6 +20,12 @@ def ilrecord(game: str, level: str, type: str, category: str, jump: str, color: 
     print(f"Finding record in {game} on {level}...")
     game = game.lower()
     level = level.lower()
+    if (category == 'advss'):
+        superspeed = True
+        category = None
+    elif (category == 'adv'):
+        superspeed = False
+        category = None
     if type != None:
         if type == "score":
             typebool = True
@@ -77,16 +83,20 @@ def ilrecord(game: str, level: str, type: str, category: str, jump: str, color: 
                                 response_level = level_name
                                 if category == None:
                                     category = json_category
+        
         if elite_level != None:
+            if superspeed:
+                elite_level = f'{elite_level}_(super_speed)'
+                response_level = f'{response_level} (Super Speed)'
             print(
-                f'"game":"{elite_game}","category_name":"{categoryName(game, category, jump)}","level":"{elite_level}","is_score":{typebool}'
+                f'"game":"{elite_game}","category_name":"{categoryName(game, category, jump, superspeed)}","level":"{elite_level}","is_score":{typebool}'
             )
             if elite_game == "br":
                 smb_elite_data = supabase.rpc(
                     "get_chart_submissions",
                     {
                         "game": f"{elite_game}",
-                        "category_name": f"{categoryName(game, category, jump)}",
+                        "category_name": f"{categoryName(game, category, jump, superspeed)}",
                         "level": f"{elite_level}",
                         "is_score": typebool,
                         "version_key": 14
@@ -97,7 +107,7 @@ def ilrecord(game: str, level: str, type: str, category: str, jump: str, color: 
                     "get_chart_submissions",
                     {
                         "game": f"{elite_game}",
-                        "category_name": f"{categoryName(game, category, jump)}",
+                        "category_name": f"{categoryName(game, category, jump, superspeed)}",
                         "level": f"{elite_level}",
                         "is_score": typebool,
                         "version_key": None
@@ -110,7 +120,7 @@ def ilrecord(game: str, level: str, type: str, category: str, jump: str, color: 
                     "get_chart_submissions",
                     {
                         "game": f"{elite_game}",
-                        "category_name": f"{categoryName(game, category, jump)}",
+                        "category_name": f"{categoryName(game, category, jump, superspeed)}",
                         "level": f"{elite_level}_(blue)",
                         "is_score": typebool,
                         "version_key": None
@@ -179,10 +189,13 @@ def levelName(game: str, level: str, color: str, jump: str):
     return level
 
 
-def categoryName(game: str, category: str, jump: str):
+def categoryName(game: str, category: str, jump: str, superspeed: bool):
     elite_category = ""
     if game != "mania":
-        elite_category = "main"
+        if (not superspeed):
+            elite_category = "main"
+        else:
+            elite_category = "super_speed"
     else:
         if category == "story" or category == "smb1" or category == "smb2":
             elite_category = "main"
