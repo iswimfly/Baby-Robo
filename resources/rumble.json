@@ -202,5 +202,28 @@
     "World 10-EX8 ~ Cosmic Curves",
     "World 10-EX9 ~ Overturn",
     "World 10-EX10 ~ Bumper Barrage"
+  ],
+  "wtuex":
+  [
+    "World 6UEX1 ~ Elevator Maze (Updated)",
+    "World 6UEX2 ~ Wheel Road (Updated)",
+    "World 6UEX3 ~ Various Seesaws (Updated)",
+    "World 6UEX4 ~ Arena (Updated)",
+    "World 6UEX5 ~ Box Seats (Updated)",
+    "World 6UEX6 ~ Cradle (Updated)",
+    "World 6UEX7 ~ Symbols (Updated)",
+    "World 6UEX8 ~ Bouncy Ball (Updated)",
+    "World 6UEX9 ~ Long Half-Pipe (Updated)",
+    "World 6UEX10 ~ Aerial Floor (Updated)",
+    "World 10UEX1 ~ Sliding Sticks (Updated)",
+    "World 10UEX2 ~ Cosmic Curves (Updated)",
+    "World 10UEX3 ~ Enigma (Updated)",
+    "World 10UEX4 ~ Gravity Field (Updated)",
+    "World 10UEX5 ~ Geometric Pattern (Updated)",
+    "World 10UEX6 ~ Wipeout (Updated)",
+    "World 10UEX7 ~ Snake Whip (Updated)",
+    "World 10UEX8 ~ Bumper Barrage (Updated)",
+    "World 10UEX9 ~ Tornado Ring (Updated)",
+    "World 10UEX10 ~ Neo Broken Cylinder (Updated)"
   ]
 }

@@ -202,6 +202,7 @@ async def powerrankings(interaction: discord.Interaction, game: str):
     category1=[
         app_commands.Choice(name="World Tour (Rumble)", value="wt"),
         app_commands.Choice(name="World Tour EX (Rumble)", value="wtex"),
+        app_commands.Choice(name="World Tour UEX (Rumble)", value="wtuex"),
         app_commands.Choice(name="Story Mode (Mania)", value="story"),
         app_commands.Choice(name="SMB1 Challenge (Mania)", value="smb1"),
         app_commands.Choice(name="SMB2 Challenge (Mania)", value="smb2"),
@@ -214,6 +215,7 @@ async def powerrankings(interaction: discord.Interaction, game: str):
     category2=[
         app_commands.Choice(name="World Tour (Rumble)", value="wt"),
         app_commands.Choice(name="World Tour EX (Rumble)", value="wtex"),
+        app_commands.Choice(name="World Tour UEX (Rumble)", value="wtuex"),
         app_commands.Choice(name="Story Mode (Mania)", value="story"),
         app_commands.Choice(name="SMB1 Challenge (Mania)", value="smb1"),
         app_commands.Choice(name="SMB2 Challenge (Mania)", value="smb2"),
@@ -228,6 +230,7 @@ async def powerrankings(interaction: discord.Interaction, game: str):
     category3=[
         app_commands.Choice(name="World Tour (Rumble)", value="wt"),
         app_commands.Choice(name="World Tour EX (Rumble)", value="wtex"),
+        app_commands.Choice(name="World Tour UEX (Rumble)", value="wtuex"),
         app_commands.Choice(name="Story Mode (Mania)", value="story"),
         app_commands.Choice(name="SMB1 Challenge (Mania)", value="smb1"),
         app_commands.Choice(name="SMB2 Challenge (Mania)", value="smb2"),
