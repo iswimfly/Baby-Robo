@@ -17,7 +17,7 @@ def monkeys(user:str):
   charadict = {}
   if (user == None):
     # Grab from P column, Check R for data
-    while i < 21:
+    while i < 23:
       if (monkeydata[i][17] != '0'):
         charadict[f'{monkeydata[i][19]}'] = int(monkeydata[i][17])
         i += 1
