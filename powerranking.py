@@ -23,7 +23,7 @@ def powerranking(game: str):
     entries = []
     i = 1
     if game == "rumble":
-        i = 8
+        i = 6
     powerrankingsheet = worksheet.get_all_values()
     while i < len(powerrankingsheet):
         if powerrankingsheet[i][1] != "":
