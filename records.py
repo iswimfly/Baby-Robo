@@ -23,9 +23,10 @@ def ilrecord(game: str, level: str, type: str, category: str, jump: str, color: 
     if (category == 'advss'):
         superspeed = True
         category = None
-    elif (category == 'adv'):
+    else:
         superspeed = False
-        category = None
+        if (category == 'adv'):
+            category = None
     if type != None:
         if type == "score":
             typebool = True
@@ -192,7 +193,7 @@ def levelName(game: str, level: str, color: str, jump: str):
 def categoryName(game: str, category: str, jump: str, superspeed: bool):
     elite_category = ""
     if game != "mania":
-        if (not superspeed):
+        if (superspeed == False):
             elite_category = "main"
         else:
             elite_category = "super_speed"
