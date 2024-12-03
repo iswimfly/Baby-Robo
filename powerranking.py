@@ -21,7 +21,7 @@ def powerranking(game: str):
     worksheet = sheet.get_worksheet(1)
     pages: list[discord.Embed] = []
     entries = []
-    i = 1
+    i = 7
     powerrankingsheet = worksheet.get_all_values()
     while i < len(powerrankingsheet):
         if powerrankingsheet[i][1] != "":
