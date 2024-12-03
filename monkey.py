@@ -16,10 +16,10 @@ def monkeys(user:str):
   i = 3
   charadict = {}
   if (user == None):
-    # Grab from U column, Check S for data
+    # Grab from P column, Check R for data
     while i < 21:
       if (monkeydata[i][17] != '0'):
-        charadict[f'{monkeydata[i][20]}'] = int(monkeydata[i][18])
+        charadict[f'{monkeydata[i][19]}'] = int(monkeydata[i][17])
         i += 1
   else:
     while i < 21:
